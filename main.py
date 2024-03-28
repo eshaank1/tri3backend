@@ -4,12 +4,16 @@ from flask import render_template,request  # import render_template from "public
 from flask.cli import AppGroup
 # import "packages" from "this" project
 from __init__ import app, db, cors  # Definitions initialization
+from flask_cors import CORS
+# from model.datascholarsearch import app, db
 # setup APIs
 from api.covid import covid_api # Blueprint import api definition
 from api.joke import joke_api # Blueprint import api definition
 from api.user import user_api # Blueprint import api definition
 from api.player import player_api
 from api.stockchart import stockchart_api 
+from api.articlesscholarsearch import Article_bp
+from api.datascholarsearch import data_bp 
 # database migrations
 from model.users import initUsers
 from model.players import initPlayers
@@ -24,6 +28,8 @@ app.register_blueprint(user_api) # register api routes
 app.register_blueprint(player_api)
 app.register_blueprint(stockchart_api)
 app.register_blueprint(app_projects) # register app pages
+app.register_blueprint(data_bp)
+app.register_blueprint(Article_bp)
 @app.errorhandler(404)  # catch for URL not found
 def page_not_found(e):
     # note that we set the 404 status explicitly
