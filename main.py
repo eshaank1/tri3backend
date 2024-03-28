@@ -12,6 +12,7 @@ from api.player import player_api
 from api.stockchart import stockchart_api 
 from api.chat import chat_api
 from api.friend import friend_api
+from api.housepriceAPI import houseprice_api
 # database migrations
 from model.users import initUsers
 from model.players import initPlayers
