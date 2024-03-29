@@ -32,7 +32,6 @@ model = Pipeline(steps=[('preprocessor', preprocessor),
 # We drop rows with missing target ('mpg') values and any rows with missing categorical values that we can't easily impute
 mpg.dropna(subset=['mpg', 'origin', 'model_year'], inplace=True)
 
-# Split the data
 X = mpg.drop('mpg', axis=1).select_dtypes(include=['float64', 'int64', 'object'])
 y = mpg['mpg']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
