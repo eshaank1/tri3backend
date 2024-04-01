@@ -14,9 +14,10 @@ from api.player import player_api
 from api.stockchart import stockchart_api 
 from api.chat import chat_api
 from api.friend import friend_api
-from api.housepriceAPI import houseprice_api
 from api.articlesscholarsearch import Article_bp
 from api.datascholarsearch import data_bp 
+from api.carcrashapi import car_crash_api
+
 # database migrations
 from model.users import initUsers
 from model.players import initPlayers
@@ -36,6 +37,7 @@ app.register_blueprint(chat_api)
 app.register_blueprint(friend_api) 
 app.register_blueprint(data_bp)
 app.register_blueprint(Article_bp)
+app.register_blueprint(car_crash_api)
 @app.errorhandler(404)  # catch for URL not found
 def page_not_found(e):
     # note that we set the 404 status explicitly
