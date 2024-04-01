@@ -36,6 +36,7 @@ app.register_blueprint(app_projects) # register app pages
 app.register_blueprint(chat_api)
 app.register_blueprint(friend_api)
 app.register_blueprint(houseprice_api) 
+app.register_blueprint(mpg_api) 
 @app.errorhandler(404)  # catch for URL not found
 def page_not_found(e):
     # note that we set the 404 status explicitly
@@ -64,4 +65,4 @@ app.cli.add_command(custom_cli)
 # this runs the application on the development server
 if __name__ == "__main__":
     # change name for testing
-    app.run(debug=True, host="0.0.0.0", port="8055")
+    app.run(debug=True, host="0.0.0.0", port="8056")
