@@ -18,7 +18,6 @@ from api.housepriceAPI import houseprice_api
 from api.articlesscholarsearch import Article_bp
 from api.datascholarsearch import data_bp 
 from api.carcrashapi import car_crash_api
-
 from api.mpgapi import mpg_api
 # database migrations
 from model.users import initUsers
@@ -36,6 +35,7 @@ app.register_blueprint(player_api)
 app.register_blueprint(stockchart_api)
 app.register_blueprint(app_projects) # register app pages
 app.register_blueprint(chat_api)
+app.register_blueprint(mpg_api)
 app.register_blueprint(friend_api) 
 app.register_blueprint(data_bp)
 app.register_blueprint(Article_bp)
