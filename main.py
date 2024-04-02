@@ -14,6 +14,7 @@ from api.player import player_api
 from api.stockchart import stockchart_api 
 from api.chat import chat_api
 from api.friend import friend_api
+from api.housepriceAPI import houseprice_api
 from api.articlesscholarsearch import Article_bp
 from api.datascholarsearch import data_bp 
 from api.carcrashapi import car_crash_api
