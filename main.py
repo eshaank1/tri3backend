@@ -20,6 +20,8 @@ from api.datascholarsearch import data_bp
 from api.carcrashapi import car_crash_api
 from api.mpgapi import mpg_api
 from api.titanicAPI import titanic_api
+from api.titanic import ninaad_titanic_api
+
 # database migrations
 from model.users import initUsers
 from model.players import initPlayers
@@ -41,6 +43,7 @@ app.register_blueprint(friend_api)
 app.register_blueprint(data_bp)
 app.register_blueprint(Article_bp)
 app.register_blueprint(titanic_api)
+app.register_blueprint(ninaad_titanic_api)
 @app.errorhandler(404)  # catch for URL not found
 def page_not_found(e):
     # note that we set the 404 status explicitly
@@ -69,4 +72,4 @@ app.cli.add_command(custom_cli)
 # this runs the application on the development server
 if __name__ == "__main__":
     # change name for testing
-    app.run(debug=True, host="0.0.0.0", port="8057")
+    app.run(debug=True, host="0.0.0.0", port="8058")

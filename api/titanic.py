@@ -10,7 +10,7 @@ from model.titanic import dt, logreg, enc, cols
 app = Flask(__name__)
 
 # Create a Blueprint for the Titanic API
-titanic_api = Blueprint('titanic_api', __name__, url_prefix='/api/titanic')
+ninaad_titanic_api = Blueprint('ninaad_titanic_api', __name__, url_prefix='/api/titanic')
 
 # Load and prepare the Titanic dataset
 # titanic_data = sns.load_dataset('titanic')
@@ -35,7 +35,7 @@ titanic_api = Blueprint('titanic_api', __name__, url_prefix='/api/titanic')
 # logreg = LogisticRegression()
 # logreg.fit(X_train, y_train)
 
-@titanic_api.route('/predict', methods=['POST'])
+@ninaad_titanic_api.route('/predict', methods=['POST'])
 def predict():
     try:
         # Extract features from the request
