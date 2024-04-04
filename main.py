@@ -44,6 +44,7 @@ app.register_blueprint(data_bp)
 app.register_blueprint(Article_bp)
 app.register_blueprint(titanic_api)
 app.register_blueprint(ninaad_titanic_api)
+app.register_blueprint(houseprice_api)
 @app.errorhandler(404)  # catch for URL not found
 def page_not_found(e):
     # note that we set the 404 status explicitly
