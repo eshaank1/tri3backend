@@ -36,8 +36,25 @@ class ChatAPI:
             messages_json = [msg.serialize() for msg in chat_messages]
             return jsonify(messages_json)
 
+    class _Edit(Resource):
+        def put(self):
+            data = request.json
+            message_id = data.get('message_id')
+            new_message = data.get('message')
+            if not message_id or not new_message:
+                return jsonify({"error": "Missing message ID or new message content"}), 400
+
+            message = ChatMessage.query.get(message_id)
+            if message:
+                message.message = new_message
+                db.session.commit()
+                return jsonify({"message": "Message updated successfully!"})
+            else:
+                return jsonify({"error": "Message not found"}), 404
+
 api.add_resource(ChatAPI._Create, '/create')
 api.add_resource(ChatAPI._Read, '/read')
+api.add_resource(ChatAPI._Edit, '/edit')
 api.add_resource(ChatAPI._Test, '/test')
 
 if __name__ == "__main__":
