@@ -81,6 +81,32 @@ def save_settings():
         # If something goes wrong, send back an error message with status code 400 (Bad Request).
         return jsonify({'error': str(e)}), 400
 
+@houseprice_api.route('/settings', methods=['GET'])
+def get_settings():
+    try:
+        # Connect to the database.
+        with sqlite3.connect(DATABASE) as conn:
+            cursor = conn.cursor()
+            
+            # Fetch the settings from the database.
+            cursor.execute('''SELECT * FROM settings WHERE id = 1''')
+            row = cursor.fetchone()
+            
+            if row:
+                # If settings exist, create a response object containing the settings.
+                response = {
+                    'bedrooms': row[1],
+                    'bathrooms': row[2],
+                    'acre_lot': row[3]
+                }
+                return jsonify(response), 200
+            else:
+                # If no settings found, return an empty response.
+                return jsonify({}), 200
+    except Exception as e:
+        # If something goes wrong, send back an error message with status code 400 (Bad Request).
+        return jsonify({'error': str(e)}), 400
+
 
 
 # Register the blueprint with the main app.
