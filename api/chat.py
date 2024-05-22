@@ -41,7 +41,7 @@ api.add_resource(ChatAPI._Read, '/read')
 api.add_resource(ChatAPI._Test, '/test')
 
 if __name__ == "__main__":
-    from app import create_app
+    from api.collegeapi import create_app
 
     app = create_app()  # Create the Flask app
     app.register_blueprint(chat_api)  # Register the chat API Blueprint
