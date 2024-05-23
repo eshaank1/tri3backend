@@ -1,4 +1,4 @@
-from __init__ import db  # Import db from the initialization file
+from __init__ import db, app  # Import db from the initialization file
 
 class ChatMessage(db.Model):
     __tablename__ = 'chat_messages'
@@ -6,7 +6,7 @@ class ChatMessage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     message = db.Column(db.Text, nullable=False)
     timestamp = db.Column(db.DateTime, nullable=False, default=db.func.now())
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))  # Establish a relationship with the User model
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)  # Establish a relationship with the User model
 
     user = db.relationship('User', backref=db.backref('messages', lazy=True))  # Define a relationship with the User model
 

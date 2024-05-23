@@ -7,44 +7,24 @@ from __init__ import app, db, cors  # Definitions initialization
 from flask_cors import CORS
 # from model.datascholarsearch import app, db
 # setup APIs
-from api.covid import covid_api # Blueprint import api definition
-from api.joke import joke_api # Blueprint import api definition
 from api.user import user_api # Blueprint import api definition
 from api.player import player_api
-from api.stockchart import stockchart_api 
 from api.chat import chat_api
-from api.friend import friend_api
-from api.housepriceAPI import houseprice_api
-from api.carcrashapi import car_crash_api
 from api.mpgapi import mpg_api
-from api.titanicAPI import titanic_api
-from api.titanic import ninaad_titanic_api
-from api.diamondapi import diamond_api
-from api.collegeapi import college_api
 
 # database migrations
 from model.users import initUsers
 from model.players import initPlayers
-from model.friends import initFriends
 # setup App pages
 from projects.projects import app_projects # Blueprint directory import projects definition
 # Initialize the SQLAlchemy object to work with the Flask app instance
 db.init_app(app)
 # register URIs
-app.register_blueprint(joke_api) # register api routes
-app.register_blueprint(covid_api) # register api routes
 app.register_blueprint(user_api) # register api routes
 app.register_blueprint(player_api)
-app.register_blueprint(stockchart_api)
 app.register_blueprint(app_projects) # register app pages
 app.register_blueprint(chat_api)
 app.register_blueprint(mpg_api)
-app.register_blueprint(friend_api) 
-app.register_blueprint(titanic_api)
-app.register_blueprint(ninaad_titanic_api)
-app.register_blueprint(houseprice_api)
-app.register_blueprint(diamond_api)
-app.register_blueprint(college_api)
 @app.errorhandler(404)  # catch for URL not found
 def page_not_found(e):
     # note that we set the 404 status explicitly
