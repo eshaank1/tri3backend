@@ -10,7 +10,6 @@ from flask_cors import CORS
 from api.user import user_api # Blueprint import api definition
 from api.player import player_api
 from api.chat import chat_api
-from api.mpgapi import mpg_api
 
 # database migrations
 from model.users import initUsers
